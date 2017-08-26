@@ -19,8 +19,8 @@
     "extra": {
         "octris/assets": {
             "source": {
-                "js": "libsjs/maui",
-                "css": "styles/maui"
+                "js": "libsjs",
+                "css": "styles"
             }
         }
     },

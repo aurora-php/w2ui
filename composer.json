@@ -16,6 +16,15 @@
         "php":          ">=7.0.0"
     },
 
+    "extra": {
+        "octris/assets": {
+            "source": {
+                "js": "libsjs/maui",
+                "css": "styles/maui"
+            }
+        }
+    },
+
     "autoload":     {
         "psr-4":        {
             "Octris\\W2ui\\": "libs/"

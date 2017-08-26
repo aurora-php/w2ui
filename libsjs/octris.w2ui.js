@@ -8,14 +8,35 @@
  */
 
 /**
- * Main javascript library for octris-w2ui.
+ * W2ui and application setup.
  *
  * @copyright   copyright (c) 2017 by Harald Lapp
  * @author      Harald Lapp <harald@octris.org>
  */
-/**/
 
+;var octris = (function(octris) {
+    /*
+     * jQuery setup
+     */
+    jQuery.ajaxSetup({
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Accept', 'application/json');
+        },
+        statusCode: {
+            401: function() {
+                // Unauthorized -- redirect to login page
+                location.href = '/login';
+            },
+            403: function() {
+                // TODO: Forbidden -- display warning(?)
+            }
+        }
+    });
 
-if (!('octris' in window)) window['octris'] = {};
+    /*
+     * w2ui setup
+     */
+    w2utils.settings.dataType = 'HTTP';
 
-if (!('w2ui' in octris)) octris.w2ui = {};
+    return octris;
+})(octris || {});
